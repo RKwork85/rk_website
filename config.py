@@ -1,6 +1,6 @@
 #encoding: utf-8
 import os
-
+# 数据库链接配置
 HOSTNAME = '127.0.0.1'
 PORT     = '3306'
 DATABASE = 'rkoa_course'
@@ -20,5 +20,5 @@ MAIL_USERNAME ="3330867560@qq.com"
 MAIL_PASSWORD ="qdgkzrnnnhuqdaac"
 MAIL_DEFAULT_SENDER ="3330867560@qq.com"
 
-SECRET_KEY = os.urandom(24)
-SECRET_KE = "fafadgrawewga"
+# SECRET_KEY = os.urandom(24)
+SECRET_KEY = "fafadgrawewga"

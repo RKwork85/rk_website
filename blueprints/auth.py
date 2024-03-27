@@ -32,7 +32,7 @@ def login():
             else :
                 print('密码错误')
                 return redirect(url_for("auth.login"))
-            return ('恭喜你成功登录')
+            return (redirect(url_for('auth.register')))
 
         else:
             print(form.errors)
@@ -92,3 +92,8 @@ def get_email_captcha():
 # http://127.0.0.1:5000/auth/captcha/email?eamil=2735919386@qq.com
 # http://127.0.0.1:5000/auth/captcha/email?eee=2735919386@qq.com
 # /mail/test
+
+@bp.route('/logout')
+def logout():
+    session.clear()
+    return redirect('/')

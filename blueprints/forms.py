@@ -39,6 +39,7 @@ class LoginForm(wtforms.Form):
 '''
 不要敲错方法名字
 usermodel.query.filter_by().first()
-还有得安装一个包
+还有得安装一个包 email-validator
+
 
 '''

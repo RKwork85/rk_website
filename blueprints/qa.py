@@ -22,11 +22,12 @@ def public_question():
             question = QuestionModel(title= title, content= content ,author = g.user)
             db.session.add(question)
             db.session.commit()
-            return redirect('/')
+            return redirect(url_for('qa.index'))
         else:
             print(form.errors)
             return redirect(url_for("qa.public_question"))
         
 @bp.route('/index')
 def index():
-    return render_template('index.html')
+    questions = QuestionModel.query.order_by(QuestionModel.create_time.desc()).all()   # 分页查询待补充
+    return render_template('index.html', questions=questions)

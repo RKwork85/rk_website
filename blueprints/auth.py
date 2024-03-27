@@ -96,4 +96,4 @@ def get_email_captcha():
 @bp.route('/logout')
 def logout():
     session.clear()
-    return redirect('/')
+    return redirect(url_for('qa.index'))

@@ -14,22 +14,27 @@
             <div class="col"></div>
             <div class="col-10">
                 <ul class="question-ul">
-                    <li>
-                    <div class="side-question">
-                        <img class="side-question-avatar" src="../static/images/avatar.jpg" alt="">
-                    </div>
-                    <div class="question-main">
-                        <div class="question-title"><a href="#">title</a></div>
-                        <div class="question-content">content</div>
-                        <div class="question-detail">
-                            <span class="question-author">username</span>
-                            <span class="question-time">create_time</span>
+                    {% for question in questions%}
+                        <li>
+                        <div class="side-question">
+                            <img class="side-question-avatar" src="{{url_for('static', filename = 'images/avatar.jpg')}}" alt="">
                         </div>
-                    </div>
-                </li>
+                        <div class="question-main">
+                            <div class="question-title"><a href="#">{{question.title}}</a></div>
+                            <div class="question-content">{{question.content}}</div>
+                            <div class="question-detail">
+                                <span class="question-author">{{question.author.username}}</span>
+                                <span class="question-time">{{question.create_time}}</span>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
                 </ul>
             </div>
             <div class="col"></div>
         </div>
 {% endblock %}
 
+<!--
+    注释会影响html代码在flask中加载运行，所以就删掉吧
+-->

@@ -43,3 +43,7 @@ usermodel.query.filter_by().first()
 
 
 '''
+
+class QusetionForm(wtforms.Form):
+    title = wtforms.StringField(validators=[Length(min=3, max=100, message="标题格式错误")])
+    content = wtforms.StringField(validators=[Length(min=3, message="内容格式错误")])

@@ -28,7 +28,7 @@ def login():
                 return redirect(url_for("auth.login"))
             if check_password_hash(user.password, password):
                 session['user_id'] = user.id
-                redirect('/')
+                return redirect(url_for("qa.public_question"))
             else :
                 print('密码错误')
                 return redirect(url_for("auth.login"))

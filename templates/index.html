@@ -4,7 +4,9 @@
 
 {% block head%}
 
-    <link rel="stylesheet" href="../static/css/index.css">
+    <!-- <link rel="stylesheet" href="../static/css/index.css"> -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+
 {% endblock%}
 
 {%block body%}
@@ -12,13 +14,17 @@
             <div class="col"></div>
             <div class="col-10">
                 <ul class="question-ul">
-                    {% for question in questions %}
+                    <!-- {% for question in questions %} -->
                         <li>
                         <div class="side-question">
+                            <!-- <img class="side-question-avatar" src="../static/images/avatar.jpg" alt=""> -->
                             <img class="side-question-avatar" src="../static/images/avatar.jpg" alt="">
+
                         </div>
                         <div class="question-main">
-                            <div class="question-title"><a href="{{url_for('qa.qa_detail',qa_id = question.id)}}">{{question.title}}</a></div>
+                            <!-- <div class="question-title"><a href="{{url_for('qa.qa_detail',qa_id = question.id)}}">{{question.title}}</a></div> -->
+                            <div class="question-title"><a href="#">{{question.title}}</a></div>
+
                             <div class="question-content">{{ question.content}}</div>
                             <div class="question-detail">
                                 <span class="question-author">{{question.author.username}}</span>
@@ -26,7 +32,7 @@
                             </div>
                         </div>
                     </li>
-                    {% endfor %}
+                    <!-- {% endfor %} -->
                 </ul>
             </div>
             <div class="col"></div>

@@ -27,3 +27,19 @@ class QuestionModel(db.Model):
     # 外键
     author_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     author = db.relationship(UserModel, backref = "questions")
+
+class AnswerModel(db.Model):
+    __tablename__ = 'answer'
+    id = db.Column(db.Integer, primary_key = True, autoincrement= True)
+    content = db.Column(db.Text, nullable = False)
+    create_time = db.Column(db.DateTime, default = datetime.now)
+
+    # 外键定义：回答的外键是谁，回答的作者是谁， 回答的问题是什么
+    question_id = db.Column(db.Integer, db.ForeignKey('question.id'))
+    author_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    # 关系
+    question = db.relationship(QuestionModel, backref= db.backref("answers", order_by = create_time.desc()))                                                            # 通过主键拿到外键 通过question拿到answer
+    author =  db.relationship(UserModel, backref= "answers")
+
+

@@ -20,7 +20,7 @@
                             <img class="side-question-avatar" src="{{url_for('static', filename = 'images/avatar.jpg')}}" alt="">
                         </div>
                         <div class="question-main">
-                            <div class="question-title"><a href="#">{{question.title}}</a></div>
+                            <div class="question-title"><a href="{{url_for('qa.detail',qa_id = question.id)}}">{{question.title}}</a></div>                <!--问题详情，精妙！设置跳转连接-->
                             <div class="question-content">{{question.content}}</div>
                             <div class="question-detail">
                                 <span class="question-author">{{question.author.username}}</span>

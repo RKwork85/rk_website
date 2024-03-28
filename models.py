@@ -39,7 +39,7 @@ class AnswerModel(db.Model):
     author_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     # 关系
-    question = db.relationship(QuestionModel, backref= db.backref("answers", order_by = create_time.desc()))                                                            # 通过主键拿到外键 通过question拿到answer
+    question = db.relationship(QuestionModel, backref= db.backref("answers", order_by = create_time.desc()))             # 通过主键拿到外键 通过question拿到answer
     author =  db.relationship(UserModel, backref= "answers")
 
 

@@ -26,7 +26,9 @@ class QuestionModel(db.Model):
 
     # 外键
     author_id = db.Column(db.Integer, db.ForeignKey("user.id"))
-    author = db.relationship(UserModel, backref = "questions")
+    author = db.relationship(UserModel, backref = "questions")      # 用来接收实例 而 外键定义的时候就定义了映射关系，sqlalchemy和自动去
+    # author = db.relationship(UserModel, backref = "questions")      # 那backref 就没什么用了
+
 
 class AnswerModel(db.Model):
     __tablename__ = 'answer'

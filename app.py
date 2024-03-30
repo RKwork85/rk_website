@@ -25,7 +25,7 @@ app.register_blueprint(auth_bp)
 app.register_blueprint(qa_bp)
 
 # 两个钩子函数
-@app.before_request
+@app.before_request          #  在请求之前就自动获取变量值， 每次请求都要写代码，获取用户的信息
 def my_before_request():
     user_id = session.get("user_id")
     if user_id:
@@ -34,9 +34,9 @@ def my_before_request():
     else:
         setattr(g, "user", None)
 
-@app.context_processor
+@app.context_processor                # 在静态网页中用此变量：g.user（是一个实例）， 上下文处理器
 def my_contex_processor():
-    return {'user': g.user}
+    return {'user': g.user} 
 
 
 

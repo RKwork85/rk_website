@@ -1,4 +1,4 @@
-from flask import Flask, g, session
+from flask import Flask, g, redirect, render_template, session, template_rendered, url_for
 from exts import db, mail
 from models import UserModel
 from blueprints.auth import bp as auth_bp
@@ -42,8 +42,7 @@ def my_contex_processor():
 
 @app.route('/')
 def hello():
-    return '你好啊，我是木子'
-
+    return redirect(url_for('qa.index'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0',debug=True)

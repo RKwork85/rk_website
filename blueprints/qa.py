@@ -19,7 +19,7 @@ def public_question():
         if form.validate():
             title = form.title.data
             content = form.content.data
-            question = QuestionModel(title= title, content= content ,author = g.user)   # g.user在每次请求前都会拿到；author是一个外键的实例对象负责接收的
+            question = QuestionModel(title= title, content= content ,author = g.user)   # g.user在每次请求前都会拿到；author是一个外键的实例对象：负责接收的
             db.session.add(question)
             db.session.commit()
             return redirect(url_for('qa.index'))
